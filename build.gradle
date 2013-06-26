@@ -1,4 +1,17 @@
+buildscript {
+    repositories {
+        maven { url 'http://repo1.maven.org/maven2' }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.4.2'        
+    }
+}
+
 apply plugin: 'android-library'
+apply plugin: 'maven-publish'
+
+version '0.1-SNAPSHOT'
+group 'com.android.volley'
 
 android {
     compileSdkVersion 17
@@ -18,6 +31,15 @@ android {
             renderscript.srcDirs = ['src']
             res.srcDirs = ['res']
             assets.srcDirs = ['assets']
+        }
+    }
+}
+
+android.libraryVariants
+publishing {
+    publications {
+        maven(MavenPublication) {
+            artifact bundleRelease
         }
     }
 }
