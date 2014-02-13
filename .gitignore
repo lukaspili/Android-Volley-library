@@ -7,4 +7,6 @@ gen
 # Gradle
 .gradle/
 build/
+
 target/
+.settings
